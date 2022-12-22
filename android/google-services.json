@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "719707636816",
+    "project_id": "book-appointment-ad2ad",
+    "storage_bucket": "book-appointment-ad2ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719707636816:android:962237edfc8faf0b7cfd55",
+        "android_client_info": {
+          "package_name": "com.example.verygoodcore.book_repair"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719707636816-ee6sm1bqdmfkqmgnlcha6dede6g6f3p4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCddaGHYs_eU9ue4Dwh1LrvPUwNP0oyIOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719707636816-ee6sm1bqdmfkqmgnlcha6dede6g6f3p4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "719707636816-lfk8oljof85onf7m4p0mv8304757dd3n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.verygoodcore.book-repair"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
