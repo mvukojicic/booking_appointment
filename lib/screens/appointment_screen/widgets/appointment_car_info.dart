@@ -2,7 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CarInfo extends StatefulWidget {
-  const CarInfo({super.key});
+  CarInfo({
+    super.key,
+    required this.setUserName,
+    required this.setUserPhone,
+    required this.setCarModel,
+    required this.setCarChassis,
+    required this.setTypeOfService,
+    required this.setDetails,
+  });
+
+  void Function(String) setUserName;
+  void Function(String) setUserPhone;
+  void Function(String) setCarModel;
+  void Function(String) setCarChassis;
+  void Function(String) setTypeOfService;
+  void Function(String) setDetails;
 
   @override
   State<CarInfo> createState() => _CarInfoState();
@@ -16,7 +31,6 @@ class _CarInfoState extends State<CarInfo> {
     return Padding(
       padding: const EdgeInsets.only(left: 24, right: 24, top: 40),
       child: Container(
-        // height: MediaQuery.of(context).size.height * 0.6,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           color: Colors.white,
@@ -29,37 +43,38 @@ class _CarInfoState extends State<CarInfo> {
           children: [
             InputTextField(
               labelText: 'Vase Ime',
-              textFieldController: nameController,
               enableUnderline: true,
+              setTextField: widget.setUserName,
             ),
             InputTextField(
               labelText: 'Broj Telefona',
-              textFieldController: nameController,
               enableUnderline: true,
+              setTextField: widget.setUserPhone,
             ),
             InputTextField(
               labelText: 'Model i Tip Automobila',
-              textFieldController: nameController,
               enableUnderline: true,
+              setTextField: widget.setCarModel,
             ),
             InputTextField(
               labelText: 'Broj Sasije',
-              textFieldController: nameController,
+              // textFieldController: nameController,
               enableUnderline: true,
+              setTextField: widget.setCarChassis,
             ),
             InputTextField(
               labelText: 'Vrsta Servisa',
-              textFieldController: nameController,
               enableUnderline: true,
+              setTextField: widget.setCarChassis,
             ),
             // const SizedBox(
             //   height: 20,
             // ),
             InputTextField(
               labelText: 'Detaljnije opisite vas kvar',
-              textFieldController: nameController,
               maxLines: 8,
               inputBorder: InputBorder.none,
+              setTextField: widget.setDetails,
             )
           ],
         ),
@@ -69,26 +84,26 @@ class _CarInfoState extends State<CarInfo> {
 }
 
 class InputTextField extends StatelessWidget {
-  const InputTextField({
+  InputTextField({
     super.key,
     required this.labelText,
-    required this.textFieldController,
+    required this.setTextField,
     this.maxLines,
     this.inputBorder,
     this.enableUnderline,
   });
 
   final String labelText;
-  final TextEditingController textFieldController;
   final int? maxLines;
   final InputBorder? inputBorder;
   final bool? enableUnderline;
+  void Function(String) setTextField;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       maxLines: maxLines,
-      controller: textFieldController,
+      onChanged: setTextField,
       decoration: InputDecoration(
         border: inputBorder,
         labelText: labelText,

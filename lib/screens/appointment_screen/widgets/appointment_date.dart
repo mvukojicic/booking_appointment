@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class DatePicker extends StatefulWidget {
-  DatePicker({super.key});
+  DatePicker({super.key, required this.setDateTime});
+
+  void Function(DateTime) setDateTime;
 
   @override
   State<DatePicker> createState() => _DatePickerState();
@@ -44,6 +46,7 @@ class _DatePickerState extends State<DatePicker> {
           return isSameDay(_selectedDay, day);
         },
         onDaySelected: (selectedDay, focusedDay) {
+          widget.setDateTime(selectedDay);
           setState(() {
             _selectedDay = selectedDay;
           });

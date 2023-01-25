@@ -1,5 +1,6 @@
 import 'package:book_repair/screens/appointment_screen/widgets/appointment_car_info.dart';
 import 'package:book_repair/screens/appointment_screen/widgets/appointment_date.dart';
+import 'package:book_repair/screens/appointment_screen/widgets/appointment_review.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
@@ -13,12 +14,68 @@ class AppointmentScreen extends StatefulWidget {
 
 class _AppointmentScreenState extends State<AppointmentScreen> {
   late int currentStepIndex = 0;
+  late DateTime dateTime = DateTime.now();
+  late String userName;
+  late String userPhone;
+  late String carModel;
+  late String carChassis;
+  late String typeOfService;
+  late String detailsService;
+
+  void setDateTime(DateTime date) {
+    setState(() {
+      dateTime = date;
+    });
+  }
+
+  void setUserName(String name) {
+    setState(() {
+      userName = name;
+    });
+  }
+
+  void setUserPhone(String phone) {
+    setState(() {
+      userPhone = phone;
+    });
+  }
+
+  void setCarModel(String model) {
+    setState(() {
+      carModel = model;
+    });
+  }
+
+  void setCarChassis(String chassis) {
+    setState(() {
+      carChassis = chassis;
+    });
+  }
+
+  void setTypeOfService(String service) {
+    setState(() {
+      typeOfService = service;
+    });
+  }
+
+  void setDetails(String details) {
+    setState(() {
+      detailsService = details;
+    });
+  }
+
+  static List<String> appBarLabel = [
+    'Izaberite slobodan datum',
+    'Unesite zeljene informacije',
+    'Proverite unete informacije',
+    'Posaljite zahtev',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Zakazivanje'),
+        title: Text(appBarLabel[currentStepIndex]),
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
@@ -26,7 +83,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 24, left: 12, right: 12),
             child: StepProgressIndicator(
-              totalSteps: 4,
+              totalSteps: 3,
               currentStep: currentStepIndex,
               selectedColor: Colors.blueAccent,
               size: 36,
@@ -47,8 +104,26 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     ),
             ),
           ),
-          if (currentStepIndex == 0) DatePicker(),
-          if (currentStepIndex == 1) const CarInfo(),
+          if (currentStepIndex == 0) DatePicker(setDateTime: setDateTime),
+          if (currentStepIndex == 1)
+            CarInfo(
+              setUserName: setUserName,
+              setUserPhone: setUserPhone,
+              setCarChassis: setCarChassis,
+              setCarModel: setCarModel,
+              setDetails: setDetails,
+              setTypeOfService: setTypeOfService,
+            ),
+          if (currentStepIndex == 2)
+            AppointmentReview(
+              userName: userName,
+              userPhone: userPhone,
+              dateTime: dateTime,
+              carModel: carModel,
+              carChassis: carChassis,
+              typeOfService: typeOfService,
+              detailsService: detailsService,
+            ),
           const SizedBox(
             height: 40,
           ),
