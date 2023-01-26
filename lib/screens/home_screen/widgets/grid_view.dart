@@ -78,7 +78,7 @@ class _GridViewCardsState extends State<GridViewCards> {
               if (repairCardSelected) {
                 Navigator.pushNamed(context, Routes.appointmentScreen);
               }
-              if(complaintsCardSelected){
+              if (complaintsCardSelected) {
                 Navigator.pushNamed(context, Routes.homeScreen);
               }
             },
