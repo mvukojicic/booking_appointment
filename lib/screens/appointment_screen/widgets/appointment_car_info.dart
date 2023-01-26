@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CarInfo extends StatefulWidget {
-  CarInfo({
+  const CarInfo({
     super.key,
     required this.setUserName,
     required this.setUserPhone,
@@ -12,12 +12,12 @@ class CarInfo extends StatefulWidget {
     required this.setDetails,
   });
 
-  void Function(String) setUserName;
-  void Function(String) setUserPhone;
-  void Function(String) setCarModel;
-  void Function(String) setCarChassis;
-  void Function(String) setTypeOfService;
-  void Function(String) setDetails;
+  final void Function(String) setUserName;
+  final void Function(String) setUserPhone;
+  final void Function(String) setCarModel;
+  final void Function(String) setCarChassis;
+  final void Function(String) setTypeOfService;
+  final void Function(String) setDetails;
 
   @override
   State<CarInfo> createState() => _CarInfoState();
@@ -30,7 +30,7 @@ class _CarInfoState extends State<CarInfo> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 24, right: 24, top: 40),
-      child: Container(
+      child: DecoratedBox(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           color: Colors.white,
@@ -84,7 +84,7 @@ class _CarInfoState extends State<CarInfo> {
 }
 
 class InputTextField extends StatelessWidget {
-  InputTextField({
+  const InputTextField({
     super.key,
     required this.labelText,
     required this.setTextField,
@@ -97,7 +97,7 @@ class InputTextField extends StatelessWidget {
   final int? maxLines;
   final InputBorder? inputBorder;
   final bool? enableUnderline;
-  void Function(String) setTextField;
+  final void Function(String) setTextField;
 
   @override
   Widget build(BuildContext context) {

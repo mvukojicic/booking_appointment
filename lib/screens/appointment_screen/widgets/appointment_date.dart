@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class DatePicker extends StatefulWidget {
-  DatePicker({super.key, required this.setDateTime});
+  const DatePicker({super.key, required this.setDateTime});
 
-  void Function(DateTime) setDateTime;
+  final void Function(DateTime) setDateTime;
 
   @override
   State<DatePicker> createState() => _DatePickerState();
@@ -20,7 +20,7 @@ class _DatePickerState extends State<DatePicker> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 12, right: 12, top: 40),
-      child: TableCalendar(
+      child: TableCalendar<dynamic>(
         headerStyle: const HeaderStyle(
           formatButtonVisible: false,
           titleCentered: true,

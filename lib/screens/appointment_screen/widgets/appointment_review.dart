@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppointmentReview extends StatelessWidget {
-  AppointmentReview({
+  const AppointmentReview({
     super.key,
     required this.userName,
     required this.userPhone,
@@ -15,19 +15,19 @@ class AppointmentReview extends StatelessWidget {
     required this.detailsService,
   });
 
-  DateTime dateTime;
-  String userName;
-  String userPhone;
-  String carModel;
-  String carChassis;
-  String typeOfService;
-  String detailsService;
+  final DateTime dateTime;
+  final String userName;
+  final String userPhone;
+  final String carModel;
+  final String carChassis;
+  final String typeOfService;
+  final String detailsService;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 24, right: 24, top: 40),
-      child: Container(
+      child: DecoratedBox(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           color: Colors.white,
@@ -36,13 +36,17 @@ class AppointmentReview extends StatelessWidget {
           ],
         ),
         child: Column(
-          children: [
+          children: const [
             ReviewTextRow(keyText: 'Korisnicko Ime:', valueText: 'Mihailo'),
             ReviewTextRow(keyText: 'Telefon:', valueText: 'valueText'),
             ReviewTextRow(
-                keyText: 'Datum zakazivanja:', valueText: 'valueText'),
+              keyText: 'Datum zakazivanja:',
+              valueText: 'valueText',
+            ),
             ReviewTextRow(
-                keyText: 'Model i tip automobila:', valueText: 'valueText'),
+              keyText: 'Model i tip automobila:',
+              valueText: 'valueText',
+            ),
             ReviewTextRow(keyText: 'Broj sasije:', valueText: 'valueText'),
             ReviewTextRow(keyText: 'Vrsta servisa:', valueText: 'valueText'),
             ReviewTextRow(keyText: 'Detaljniji opis:', valueText: 'valueText'),

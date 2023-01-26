@@ -6,12 +6,11 @@ import 'package:flutter/material.dart';
 
 NavigateTo? routeHandler(RouteSettings settings) {
   final name = settings.name;
-  dynamic arguments = settings.arguments;
 
   switch (name) {
     case Routes.homeScreen:
       return NavigateTo(
-        builder: (_) => HomeScreen(),
+        builder: (_) => const HomeScreen(),
       );
     case Routes.loginScreen:
       return NavigateTo(

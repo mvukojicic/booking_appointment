@@ -7,8 +7,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key, this.tabIndex = 0});
-  late int tabIndex;
+  const HomeScreen({super.key, this.tabIndex = 0});
+  final int tabIndex;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
