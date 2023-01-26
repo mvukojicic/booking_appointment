@@ -31,7 +31,7 @@ class CustomAppBar extends StatelessWidget {
         ),
       ],
       backgroundColor: Colors.transparent,
-      flexibleSpace: Container(
+      flexibleSpace: DecoratedBox(
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
