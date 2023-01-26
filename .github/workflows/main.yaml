@@ -8,5 +8,4 @@ jobs:
     with:
       flutter_channel: stable
       flutter_version: 3.3.8
-      fetch-depth: 0
 
